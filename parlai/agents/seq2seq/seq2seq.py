@@ -161,6 +161,7 @@ class Seq2seqAgent(TorchGeneratorAgent):
             states = {}
 
         kwargs = opt_to_kwargs(opt)
+
         model = Seq2seq(
             len(self.dict),
             opt['embeddingsize'],

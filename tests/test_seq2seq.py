@@ -7,6 +7,9 @@
 import unittest
 import parlai.utils.testing as testing_utils
 
+with open('train_corpus_size.txt', 'r') as file:
+    CORPUS_SIZE = int(file.read())
+
 BATCH_SIZE = 16
 NUM_EPOCHS = 10
 LR = 1
@@ -39,7 +42,14 @@ class TestSeq2Seq(unittest.TestCase):
                 rank_candidates=True,
             )
         )
+        # with open("x.txt", "w") as file:
+        #     file.write(str(test) + "\n")
+        #     file.write(str(valid) + "\n")
+
         assert valid['hits@1'] >= 0.95
+        
+        with open("test_seq2seq.txt", "a") as file:
+            file.write("Corpus_Size: {} Loss: {:.7} ({:.4}% of the dataset)\n".format(CORPUS_SIZE, str(test['loss']), str(float(CORPUS_SIZE/6.4))))
 
     def test_generation(self):
         """
@@ -77,6 +87,7 @@ class TestSeq2Seq(unittest.TestCase):
                 num_examples=16,
             )
         )
+
         self.assertGreater(valid['accuracy'], 0.95)
         self.assertGreater(test['accuracy'], 0.95)
 

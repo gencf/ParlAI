@@ -7,7 +7,6 @@
 """
 These agents contain a number of "unit test" corpora, or fake corpora that ensure models
 can learn simple behavior easily. They are useful as unit tests for the basic models.
-
 The corpora are all randomly, but deterministically generated
 """
 
@@ -36,10 +35,13 @@ from parlai.utils.data import DatatypeHelper
 from parlai.utils.io import PathManager
 
 # default parameters
+with open('train_corpus_size.txt', 'r') as file:
+    CORPUS_SIZE = int(file.read())
+
 VOCAB_SIZE = 7
 EXAMPLE_SIZE = 4
 NUM_CANDIDATES = 10
-NUM_TRAIN = 500
+NUM_TRAIN = 640
 NUM_TEST = 100
 INFINITE = 1e20
 
@@ -47,7 +49,6 @@ INFINITE = 1e20
 class CandidateBaseTeacher(Teacher, ABC):
     """
     Base Teacher.
-
     Contains some functions that are useful for all the subteachers.
     """
 
@@ -136,7 +137,6 @@ class CandidateBaseTeacher(Teacher, ABC):
 class FixedDialogCandidateTeacher(CandidateBaseTeacher, FixedDialogTeacher):
     """
     Base Candidate Teacher.
-
     Useful if you'd like to test the FixedDialogTeacher
     """
 
@@ -183,7 +183,6 @@ class CandidateTeacher(CandidateBaseTeacher, DialogTeacher):
     """
     Candidate teacher produces several candidates, one of which is a repeat of the
     input.
-
     A good ranker should easily identify the correct response.
     """
 
@@ -203,11 +202,11 @@ class OverfitTeacher(CandidateTeacher, DialogTeacher):
         cls, parser: ParlaiParser, partial_opt: Optional[Opt] = None
     ) -> ParlaiParser:
         super().add_cmdline_args(parser, partial_opt)
-        parser.add_argument('--corpus-size', default=4, type=int)
+        parser.add_argument('--corpus-size', default=CORPUS_SIZE, type=int)
         return parser
 
     def __init__(self, opt, shared=None):
-        self.corpussize = opt.get('corpus_size', 4)
+        self.corpussize = opt.get('corpus_size')
         super().__init__(opt, shared)
 
     def setup_data(self, fold):
@@ -232,11 +231,11 @@ class OverfitMultiturnTeacher(CandidateTeacher, DialogTeacher):
         cls, parser: ParlaiParser, partial_opt: Optional[Opt] = None
     ) -> ParlaiParser:
         super().add_cmdline_args(parser, partial_opt)
-        parser.add_argument('--corpus-size', default=4, type=int)
+        parser.add_argument('--corpus-size', default=CORPUS_SIZE, type=int)
         return parser
 
     def __init__(self, opt, shared=None):
-        self.corpussize = opt.get('corpus_size', 4)
+        self.corpussize = opt.get('corpus_size')
         super().__init__(opt, shared)
 
     def setup_data(self, fold):
@@ -266,7 +265,6 @@ class VariableLengthTeacher(CandidateTeacher):
 class MultiturnCandidateTeacher(CandidateTeacher):
     """
     Splits inputs/targets by spaces into multiple turns.
-
     Good for testing models that use the dialog history.
     """
 
@@ -302,7 +300,6 @@ class MultiturnTeacher(MultiturnCandidateTeacher):
 class NocandidateTeacher(CandidateTeacher):
     """
     Strips the candidates so the model can't see any options.
-
     Good for testing simple generative models.
     """
 
@@ -315,7 +312,6 @@ class NocandidateTeacher(CandidateTeacher):
 class RepeatWordsTeacher(NocandidateTeacher):
     """
     Each input/output pair is a word repeated n times.
-
     Useful for testing beam-blocking.
     """
 
@@ -339,7 +335,6 @@ class RepeatWordsTeacher(NocandidateTeacher):
 class MultiturnNocandidateTeacher(MultiturnCandidateTeacher):
     """
     Strips the candidates so the model can't see any options.
-
     Good for testing simple generative models.
     """
 
@@ -352,7 +347,6 @@ class MultiturnNocandidateTeacher(MultiturnCandidateTeacher):
 class ClassifierTeacher(CandidateTeacher):
     """
     Classifier Teacher.
-
     Good for testing simple classifier models.
     """
 
@@ -370,7 +364,6 @@ class ClassifierTeacher(CandidateTeacher):
 class ReverseTeacher(CandidateTeacher):
     """
     Reverse Teacher.
-
     Label is opposite of text; good for testing more complex generative models.
     """
 
@@ -384,7 +377,6 @@ class ReverseTeacher(CandidateTeacher):
 class ImageTeacher(AbstractImageTeacher):
     """
     Teacher which provides images and captions.
-
     In __init__, setup some fake images + features
     """
 
@@ -493,7 +485,6 @@ class ChunkyTeacher(ChunkTeacher):
 class WrongExamplesChunkyTeacher(ChunkyTeacher):
     """
     Chunk teacher with an incorrect number of examples.
-
     Useful for testing we don't get a deadlock from a common user error.
     """
 

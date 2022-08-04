@@ -26,7 +26,15 @@ from parlai.core.dict import DictionaryAgent
 from parlai.core.opt import Opt
 from .test_dict import DEFAULT_BYTELEVEL_BPE_VOCAB, DEFAULT_BYTELEVEL_BPE_MERGE
 from parlai.core.params import ParlaiParser
+from test import write_file
 
+# with open("train_corpus_size.txt", "r") as file:
+#     corpus_size = int(file.read())
+# with open("test_path.txt", "r") as file:
+#     test_path = file.read()
+
+with open('train_corpus_size.txt', 'r') as file:
+    CORPUS_SIZE = int(file.read())
 
 class TestTransformerBase(unittest.TestCase):
     """
@@ -109,6 +117,9 @@ class TestTransformerRanker(unittest.TestCase):
         Test a simple repeat-after-me model.
         """
         valid, test = self._overfit_train()
+        # with open(test_path, "a") as file:
+        #     file.write("Corpus_Size: {} Loss: {:.7} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
+        write_file(test)
 
         self.assertGreaterEqual(valid['hits@1'], 0.90)
         self.assertGreaterEqual(test['hits@1'], 0.90)
@@ -222,6 +233,9 @@ class TestTransformerRanker(unittest.TestCase):
         Test --variant xlm.
         """
         valid, test = self._overfit_train(variant='xlm', activation='gelu')
+        # with open(test_path, "a") as file:
+        #     file.write("Corpus_Size: {} Loss: {:.7} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
+        write_file(test)
 
         self.assertGreaterEqual(valid['hits@1'], 0.90)
         self.assertGreaterEqual(test['hits@1'], 0.90)
@@ -238,6 +252,9 @@ class TestTransformerRanker(unittest.TestCase):
             activation='gelu',
             history_add_global_end_token='end',
         )
+        # with open(test_path, "a") as file:
+        #     file.write("Corpus_Size: {} Loss: {:.7} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
+        write_file(test)
 
         self.assertGreaterEqual(valid['hits@1'], 0.90)
         self.assertGreaterEqual(test['hits@1'], 0.90)
@@ -252,6 +269,9 @@ class TestTransformerRanker(unittest.TestCase):
             activation='gelu',
             reduction_type='first',  # this is really what we're trying to test for
         )
+        # with open(test_path, "a") as file:
+        #     file.write("Corpus_Size: {} Loss: {:.7} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
+        write_file(test)
 
         self.assertGreaterEqual(valid['hits@1'], 0.99)
         self.assertGreaterEqual(test['hits@1'], 0.99)
@@ -621,6 +641,9 @@ class TestTransformerGenerator(TestTransformerBase):
             n_segments=8,  # doesn't do anything but still good to test
             adam_eps=1e-6,  # just to test another flag simultaneously
         )
+        # with open(test_path, "a") as file:
+        #     file.write("Corpus_Size: {} Loss: {:.7} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
+        write_file(test)
 
         self.assertLessEqual(valid['ppl'], 1.02)
         self.assertLessEqual(test['ppl'], 1.02)
@@ -631,6 +654,9 @@ class TestTransformerGenerator(TestTransformerBase):
         Test --variant prelayernorm.
         """
         valid, test = self._overfit_train(variant='prelayernorm', activation='gelu')
+        # with open(test_path, "a") as file:
+        #     file.write("Corpus_Size: {} Loss: {:.7} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
+        write_file(test)
 
         self.assertLessEqual(valid['ppl'], 1.30)
         self.assertLessEqual(test['ppl'], 1.30)
@@ -1177,7 +1203,15 @@ class TestDecoderOnly(unittest.TestCase):
         Test basic training.
         """
         valid, test = self._overfit_train(variant='prelayernorm', activation='gelu')
+        # with open(test_path, "a") as file:
+        #     file.write("Corpus_Size: {} Loss: {:.7} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
+        write_file(test)
+        with open("test_train.txt", "a") as file:
+            file.write("CORPUS SIZE: " + str(CORPUS_SIZE) + "\n")
+            file.write(str(test) + "\n")
+            file.write(str(valid) + "\n\n")
 
+            
         self.assertLessEqual(valid['ppl'], 1.30)
         self.assertLessEqual(test['ppl'], 1.30)
 
