@@ -6,6 +6,7 @@
 
 import unittest
 import parlai.utils.testing as testing_utils
+from test import write_file
 
 BASE_ARGS = {
     # Model Args
@@ -81,6 +82,7 @@ class TestImageSeq2Seq(unittest.TestCase):
         args = BASE_ARGS.copy()
         args.update(TEXT_ARGS)
         valid, test = testing_utils.train_model(args)
+        write_file(test)
         self.assertLessEqual(
             valid['ppl'], 1.5, 'failed to train image_seq2seq on text task'
         )
@@ -95,12 +97,14 @@ class TestImageSeq2Seq(unittest.TestCase):
         args.update(IMAGE_ARGS)
 
         valid, test = testing_utils.train_model(args)
+        write_file(test)
+
         self.assertLessEqual(
             valid['ppl'], 8.6, 'failed to train image_seq2seq on image task'
         )
 
     @testing_utils.retry(ntries=3)
-    @testing_utils.skipUnlessGPU
+    # @testing_utils.skipUnlessGPU
     def test_multitask(self):
         """
         Test that model can handle multiple inputs.
@@ -109,12 +113,14 @@ class TestImageSeq2Seq(unittest.TestCase):
         args.update(MULTITASK_ARGS)
 
         valid, test = testing_utils.train_model(args)
+        write_file(test)
+
         self.assertLessEqual(
             valid['ppl'], 5.0, 'failed to train image_seq2seq on image+text task'
         )
 
     @testing_utils.retry(ntries=3)
-    @testing_utils.skipUnlessGPU
+    # @testing_utils.skipUnlessGPU
     def test_image_task_early_fusion(self):
         """
         Test that model correctly handles image task.
@@ -126,12 +132,14 @@ class TestImageSeq2Seq(unittest.TestCase):
         args.update(EARLY_FUSION_ARGS)
 
         valid, test = testing_utils.train_model(args)
+        write_file(test)
+
         self.assertLessEqual(
             valid['ppl'], 8.6, 'failed to train image_seq2seq on image task'
         )
 
     @testing_utils.retry(ntries=3)
-    @testing_utils.skipUnlessGPU
+    # @testing_utils.skipUnlessGPU
     def test_multitask_early_fusion(self):
         """
         Test that model can handle multiple inputs.
@@ -143,12 +151,14 @@ class TestImageSeq2Seq(unittest.TestCase):
         args.update(EARLY_FUSION_ARGS)
 
         valid, test = testing_utils.train_model(args)
+        write_file(test)
+
         self.assertLessEqual(
             valid['ppl'], 5.0, 'failed to train image_seq2seq on image+text task'
         )
 
     @testing_utils.retry(ntries=3)
-    @testing_utils.skipUnlessGPU
+    # @testing_utils.skipUnlessGPU
     def test_image_task_spatial_features(self):
         """
         Test that model correctly handles image task.
@@ -159,6 +169,8 @@ class TestImageSeq2Seq(unittest.TestCase):
         args.update(SPATIAL_IMAGE_ARGS)
 
         valid, test = testing_utils.train_model(args)
+        write_file(test)
+
         self.assertLessEqual(
             valid['ppl'],
             7.5,
@@ -166,7 +178,7 @@ class TestImageSeq2Seq(unittest.TestCase):
         )
 
     @testing_utils.retry(ntries=3)
-    @testing_utils.skipUnlessGPU
+    # @testing_utils.skipUnlessGPU
     def test_image_task_spatial_features_early_fusion(self):
         """
         Test that model correctly handles image task.
@@ -180,6 +192,8 @@ class TestImageSeq2Seq(unittest.TestCase):
         args.update(EARLY_FUSION_ARGS)
 
         valid, test = testing_utils.train_model(args)
+        write_file(test)
+        
         self.assertLessEqual(
             valid['ppl'],
             7.5,

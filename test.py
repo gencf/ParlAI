@@ -1,7 +1,7 @@
 import os
 import time
 os.environ['MKL_THREADING_LAYER'] = 'GNU'
-from numba import jit, cuda
+# from numba import jit, cuda
 
 from matplotlib import pyplot as plt
 
@@ -13,15 +13,16 @@ def write_file(test):
     with open(test_path, "a") as file:
         file.write("Corpus_Size: {} Loss: {:.9} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
 
-@jit(target_backend ="cuda")                         
-def test():
+# @jit(target_backend ="cuda")
+if __name__ == '__main__':
     ROOT_PATH = "./z"
-    # FILE_NAME = "test_transformers"
-    FILE_NAME = "test_image_seq2seq"
+    FILE_NAME = "test_transformers"
+    # FILE_NAME = "test_image_seq2seq"
     TEST_NAME_LIST = []
     # CORPUS_SIZE_LIST = [4, 8, 32, 64, 128, 320, 640]
-    CORPUS_SIZE_LIST = [640]
-    NUM_TESTS = 1
+    CORPUS_SIZE_LIST = [4, 8, 32, 64, 128, 320, 640]
+    # CORPUS_SIZE_LIST = [640]
+    NUM_TESTS = 10
 
     FILE_PATH = os.path.join(ROOT_PATH, FILE_NAME)
     if not os.path.exists(FILE_PATH):
@@ -36,7 +37,7 @@ def test():
     # TEST_NAME_LIST = ["TestTransformerRanker::test_alt_reduction"]
 
     for TEST_NAME in TEST_NAME_LIST:
-        TEST_PATH = os.path.join(FILE_PATH, TEST_NAME.split("::")[0] + "_" + TEST_NAME.split("::")[1]) 
+        TEST_PATH = os.path.join(FILE_PATH, TEST_NAME.split("::")[0] + "_" + TEST_NAME.split("::")[1])
         if not os.path.exists(TEST_PATH):
             os.makedirs(TEST_PATH)
 
@@ -51,7 +52,7 @@ def test():
 
             with open("test_path.txt", "w") as file:
                 file.write(TEST_PATH + ".txt")
-                
+
             start_txt_read_time = time.time()
             with open("train_corpus_size.txt", "r") as file:
                 cor = int(file.read())
@@ -65,7 +66,7 @@ def test():
             for i in range(NUM_TESTS):
                 os.system("pytest -v tests/{}.py::{}".format(FILE_NAME, TEST_NAME))
             end = time.time()
-            
+
             average_time = (end - start) / NUM_TESTS - 2*txt_read_time
             print("Average Time: {}".format(average_time))
 
@@ -87,14 +88,14 @@ def test():
                             flag = 1
                             num_test += 1
 
-                        elif flag == 1:  
+                        elif flag == 1:
                             break
 
                         else:
                             continue
 
             print(CORPUS_SIZE, num_test)
-            
+
             with open("{}.txt".format(TEST_PATH), "r+") as file:
                 flag = 0
 
@@ -108,11 +109,11 @@ def test():
                             file.write("Average Time: {:.7}\n\n". format(average_time))
                             loss_graph[CORPUS_SIZE] = average_loss
                             time_graph[CORPUS_SIZE] = average_time
-                            break 
+                            break
 
                         else:
                             continue   # skip empty line
-                    
+
                     elif line.startswith("Average"):
                         continue
 
@@ -125,7 +126,7 @@ def test():
                         if int(line[1]) == CORPUS_SIZE:
                             flag = 1
 
-                        elif flag == 1:  
+                        elif flag == 1:
                             break
 
                         else:
@@ -148,6 +149,3 @@ def test():
         plt.title("Average Time vs Corpus Size")
         plt.savefig("{}_time_graph.pdf".format(TEST_PATH))
 
-
-if __name__ == '__main__':
-    test()
