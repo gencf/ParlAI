@@ -1,30 +1,92 @@
-Corpus_Size: 4 Loss: 0.1934 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.5554 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.4506 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.1073 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.8047 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.3372 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.3349 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.1557 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.3517 (0.62% of the dataset)
-Corpus_Size: 4 Loss: 0.2844 (0.62% of the dataset)
-Average Loss: 0.35753
-Average Time: 3.798118
+Corpus_Size: 4 Loss: 0.3034 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.1649 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.3778 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.2022 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.2857 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.378 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.7779 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.1094 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.2728 (0.62% of the dataset)
+Corpus_Size: 4 Loss: 0.3402 (0.62% of the dataset)
+Average Loss: 0.32123
+Average Time: 4.011914
 
-Corpus_Size: 8 Loss: 0.1226 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.1992 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.4841 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.04713 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.2073 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.1951 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.1059 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.63 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.09257 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.1789 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.2841 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.2122 (1.25% of the dataset)
-Corpus_Size: 8 Loss: 0.3411 (1.25% of the dataset)
-Average Loss: 0.2384769
-Average Time: 4.756451
+Corpus_Size: 8 Loss: 0.02275 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.01617 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.2446 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.1386 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.1227 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.2559 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.3441 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.2231 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.3831 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.2534 (1.25% of the dataset)
+Corpus_Size: 8 Loss: 0.2703 (1.25% of the dataset)
+Average Loss: 0.2067927
+Average Time: 4.215163
 
-Corpus_Size: 32 Loss: 0.03742 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.3321 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.2102 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.1075 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.003862 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.09338 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.1621 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.2545 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.05299 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.1054 (5.0% of the dataset)
+Corpus_Size: 32 Loss: 0.1251 (5.0% of the dataset)
+Average Loss: 0.1447132
+Average Time: 8.828182
+
+Corpus_Size: 64 Loss: 0.1733 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.1278 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.08811 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.0608 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.02564 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.03393 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.3099 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.2203 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.1056 (10.0% of the dataset)
+Corpus_Size: 64 Loss: 0.02961 (10.0% of the dataset)
+Average Loss: 0.117499
+Average Time: 14.95231
+
+Corpus_Size: 128 Loss: 0.05676 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.01595 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.01198 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.0291 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.1834 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.1706 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.1022 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.001715 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.1007 (20.0% of the dataset)
+Corpus_Size: 128 Loss: 0.1203 (20.0% of the dataset)
+Average Loss: 0.0792705
+Average Time: 26.7543
+
+Corpus_Size: 320 Loss: 0.1569 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.07582 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.08404 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.005664 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.03097 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.0858 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.07159 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.00536 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.09381 (50.0% of the dataset)
+Corpus_Size: 320 Loss: 0.03102 (50.0% of the dataset)
+Average Loss: 0.0640974
+Average Time: 89.73199
+
+Corpus_Size: 640 Loss: 0.01197 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.153 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.05509 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.08576 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.0652 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.02384 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.07431 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.03472 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.007096 (100.% of the dataset)
+Corpus_Size: 640 Loss: 0.04474 (100.% of the dataset)
+Average Loss: 0.0555726
+Average Time: 145.1985
+
