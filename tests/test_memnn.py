@@ -6,7 +6,7 @@
 
 import unittest
 import parlai.utils.testing as testing_utils
-
+from test import write_file
 
 class TestMemnn(unittest.TestCase):
     """
@@ -38,6 +38,7 @@ class TestMemnn(unittest.TestCase):
                 rank_candidates=True,
             )
         )
+        write_file(test)
 
         self.assertGreater(valid['hits@1'], 0.95)
         self.assertGreater(test['hits@1'], 0.95)
@@ -55,6 +56,7 @@ class TestMemnn(unittest.TestCase):
                 batchsize=16,
             )
         )
+        write_file(test)
 
         self.assertGreaterEqual(valid['accuracy'], 0.88)
         self.assertGreaterEqual(valid['f1'], 0.999)
