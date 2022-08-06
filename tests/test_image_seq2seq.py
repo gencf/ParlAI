@@ -88,7 +88,7 @@ class TestImageSeq2Seq(unittest.TestCase):
         )
 
     @testing_utils.retry(ntries=3)
-    @testing_utils.skipUnlessGPU
+    # @testing_utils.skipUnlessGPU
     def test_image_task(self):
         """
         Test that model correctly handles image task.

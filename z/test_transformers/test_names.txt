@@ -1,4 +1,3 @@
-TestTransformerRanker::test_xlm
 TestTransformerGenerator::test_prelayernorm
 TestTransformerGenerator::test_xlm
 TestDecoderOnly::test_train

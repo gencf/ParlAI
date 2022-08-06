@@ -16,13 +16,12 @@ def write_file(test):
 # @jit(target_backend ="cuda")
 if __name__ == '__main__':
     ROOT_PATH = "./z"
-    FILE_NAME = "test_transformers"
-    # FILE_NAME = "test_image_seq2seq"
+    # FILE_NAME = "test_transformers"
+    FILE_NAME = "test_image_seq2seq"
     TEST_NAME_LIST = []
     # CORPUS_SIZE_LIST = [4, 8, 32, 64, 128, 320, 640]
-    CORPUS_SIZE_LIST = [4, 8, 32, 64, 128, 320, 640]
-    # CORPUS_SIZE_LIST = [640]
-    NUM_TESTS = 10
+    CORPUS_SIZE_LIST = [640]
+    NUM_TESTS = 1
 
     FILE_PATH = os.path.join(ROOT_PATH, FILE_NAME)
     if not os.path.exists(FILE_PATH):
@@ -32,9 +31,6 @@ if __name__ == '__main__':
         test_names = file.read().splitlines()
         for test_name in test_names:
             TEST_NAME_LIST.append(test_name)
-
-    # TEST_NAME_LIST = ["TestDecoderOnly::test_train"]
-    # TEST_NAME_LIST = ["TestTransformerRanker::test_alt_reduction"]
 
     for TEST_NAME in TEST_NAME_LIST:
         TEST_PATH = os.path.join(FILE_PATH, TEST_NAME.split("::")[0] + "_" + TEST_NAME.split("::")[1])
