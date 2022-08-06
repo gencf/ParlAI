@@ -11,7 +11,7 @@ import parlai.scripts.multiprocessing_train as mp_train
 import parlai.scripts.build_dict as build_dict
 import os
 import copy
-
+from test import write_file
 
 class TestHuggingFaceDict(unittest.TestCase):
     def test_custom_special_tokens(self):
@@ -126,7 +126,7 @@ class TestGpt2(unittest.TestCase):
         assert response['text'] == " John. I'm a man of"
 
 
-@testing_utils.skipUnlessGPU
+# @testing_utils.skipUnlessGPU
 class TestDistributed(unittest.TestCase):
     _base_config = {
         'task': 'integration_tests:overfit',
@@ -190,6 +190,7 @@ class TestDistributed(unittest.TestCase):
         config['skip_generation'] = True
         config['fp16'] = True
         valid, test = self._distributed_train_model(config)
+        write_file(test)
 
         self.assertLessEqual(valid['ppl'], 10)
         self.assertLessEqual(test['ppl'], 10)

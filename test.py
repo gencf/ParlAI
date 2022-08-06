@@ -16,13 +16,12 @@ def write_file(test):
 # @jit(target_backend ="cuda")
 if __name__ == '__main__':
     ROOT_PATH = "./z"
-    FILE_NAME = "test_memnn"
-    # FILE_NAME = "test_transformers"
-    # FILE_NAME = "test_image_seq2seq"
+    # FILE_NAME = "test_gpt2"
+    FILE_NAME = "test_t5"
     TEST_NAME_LIST = []
     CORPUS_SIZE_LIST = [4, 8, 32, 64, 128, 320, 640]
     # CORPUS_SIZE_LIST = [640]
-    NUM_TESTS = 10
+    NUM_TESTS = 1
 
     FILE_PATH = os.path.join(ROOT_PATH, FILE_NAME)
     if not os.path.exists(FILE_PATH):
@@ -61,7 +60,7 @@ if __name__ == '__main__':
 
             start = time.time()
             for i in range(NUM_TESTS):
-                os.system("pytest -v tests/{}.py::{}".format(FILE_NAME, TEST_NAME))
+                os.system("pytest -v tests/nightly/gpu/{}.py::{}".format(FILE_NAME, TEST_NAME))
             end = time.time()
 
             average_time = (end - start) / NUM_TESTS - 2*txt_read_time

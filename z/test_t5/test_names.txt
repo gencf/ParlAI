@@ -1,0 +1,3 @@
+TestT5Model::test_t5_ft
+TestT5Distributed::test_t5_distributed
+TestT5DistributedWithGen::test_t5_distributed

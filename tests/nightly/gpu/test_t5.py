@@ -14,6 +14,7 @@ Additionally includes some toy fine-tuning in ParlAI (similar to BART)
 import os
 import torch
 import unittest
+from test import write_file
 
 try:
     import transformers  # noqa
@@ -40,7 +41,7 @@ from tests.test_distributed import _AbstractTest
 device = 'cpu' if not torch.cuda.is_available() else 'cuda:0'
 
 
-@testing_utils.skipUnlessGPU
+# @testing_utils.skipUnlessGPU
 @unittest.skipUnless(HF_AVAILABLE, 'Must install transformers to run this test')
 class TestT5Model(unittest.TestCase):
     """
@@ -234,6 +235,8 @@ class TestT5Model(unittest.TestCase):
                     t5_model_arch='t5-small',
                 )
             )
+            write_file(test)
+
             self.assertLessEqual(valid['ppl'].value(), 1.5)
             self.assertLessEqual(test['ppl'].value(), 1.5)
 
@@ -264,7 +267,7 @@ class TestT5Model(unittest.TestCase):
             )
 
 
-@testing_utils.skipUnlessGPU
+# @testing_utils.skipUnlessGPU
 class TestT5Distributed(_AbstractTest):
     base_config = dict(
         task='integration_tests:overfit',
@@ -285,12 +288,13 @@ class TestT5Distributed(_AbstractTest):
 
     def test_t5_distributed(self):
         valid, test = self._distributed_train_model()
+        write_file(test)
 
         self.assertLessEqual(valid['ppl'], 1.60)
         self.assertLessEqual(test['ppl'], 1.60)
 
 
-@testing_utils.skipUnlessGPU
+# @testing_utils.skipUnlessGPU
 class TestT5DistributedWithGen(_AbstractTest):
     base_config = dict(
         task='integration_tests:overfit',
@@ -311,6 +315,7 @@ class TestT5DistributedWithGen(_AbstractTest):
     def test_t5_distributed(self):
         # just testing this runs appropriately
         valid, test = self._distributed_train_model()
+        write_file(test)
 
 
 if __name__ == '__main__':

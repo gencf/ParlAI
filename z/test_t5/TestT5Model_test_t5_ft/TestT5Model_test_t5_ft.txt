@@ -1,0 +1,8 @@
+Corpus_Size: 4 Loss: 0.03667 (0.62% of the dataset)
+Average Loss: 0.03667
+Average Time: 115.4892
+
+Corpus_Size: 8 Loss: 0.06168 (1.25% of the dataset)
+Average Loss: 0.06168
+Average Time: 202.8426
+

@@ -1,7 +1,0 @@
-TestImageSeq2Seq::test_image_task
-TestImageSeq2Seq::test_image_task_early_fusion
-TestImageSeq2Seq::test_image_task_spatial_features
-TestImageSeq2Seq::test_image_task_spatial_features_early_fusion
-TestImageSeq2Seq::test_multitask
-TestImageSeq2Seq::test_multitask_early_fusion
-TestImageSeq2Seq::test_text_task
