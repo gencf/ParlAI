@@ -9,8 +9,8 @@ Corpus_Size: 4 Loss: 0.0001633 (0.62% of the dataset)
 Corpus_Size: 4 Loss: 6.898e-05 (0.62% of the dataset)
 Corpus_Size: 4 Loss: 9.638e-05 (0.62% of the dataset)
 Corpus_Size: 4 Loss: 0.0001635 (0.62% of the dataset)
-Average Loss: 0.01031527
-Average Time: 4.639745
+Average Loss: 0.010315
+Average Time: 4.217949
 
 Corpus_Size: 8 Loss: 0.03772 (1.25% of the dataset)
 Corpus_Size: 8 Loss: 0.2027 (1.25% of the dataset)
@@ -42,8 +42,8 @@ Corpus_Size: 8 Loss: 0.05716 (1.25% of the dataset)
 Corpus_Size: 8 Loss: 0.1132 (1.25% of the dataset)
 Corpus_Size: 8 Loss: 0.142 (1.25% of the dataset)
 Corpus_Size: 8 Loss: 0.01515 (1.25% of the dataset)
-Average Loss: 0.09256747
-Average Time: 8.483253
+Average Loss: 0.092567
+Average Time: 2.827750
 
 Corpus_Size: 32 Loss: 0.4486 (5.0% of the dataset)
 Corpus_Size: 32 Loss: 0.3842 (5.0% of the dataset)
@@ -75,8 +75,8 @@ Corpus_Size: 32 Loss: 0.2954 (5.0% of the dataset)
 Corpus_Size: 32 Loss: 0.2337 (5.0% of the dataset)
 Corpus_Size: 32 Loss: 0.1307 (5.0% of the dataset)
 Corpus_Size: 32 Loss: 0.8051 (5.0% of the dataset)
-Average Loss: 0.3062837
-Average Time: 21.06481
+Average Loss: 0.306283
+Average Time: 7.021603
 
 Corpus_Size: 64 Loss: 0.377 (10.0% of the dataset)
 Corpus_Size: 64 Loss: 0.1665 (10.0% of the dataset)
@@ -106,8 +106,8 @@ Corpus_Size: 64 Loss: 0.2644 (10.0% of the dataset)
 Corpus_Size: 64 Loss: 0.122 (10.0% of the dataset)
 Corpus_Size: 64 Loss: 0.1243 (10.0% of the dataset)
 Corpus_Size: 64 Loss: 0.2042 (10.0% of the dataset)
-Average Loss: 0.1996602
-Average Time: 35.27643
+Average Loss: 0.199660
+Average Time: 12.598725
 
 Corpus_Size: 128 Loss: 0.05108 (20.0% of the dataset)
 Corpus_Size: 128 Loss: 0.9929 (20.0% of the dataset)
@@ -135,7 +135,7 @@ Corpus_Size: 128 Loss: 0.08889 (20.0% of the dataset)
 Corpus_Size: 128 Loss: 0.06723 (20.0% of the dataset)
 Corpus_Size: 128 Loss: 0.005704 (20.0% of the dataset)
 Average Loss: 0.154159
-Average Time: 61.26641
+Average Time: 24.506563
 
 Corpus_Size: 320 Loss: 0.1804 (50.0% of the dataset)
 Corpus_Size: 320 Loss: 4.584e-06 (50.0% of the dataset)
@@ -154,8 +154,8 @@ Corpus_Size: 320 Loss: 0.04087 (50.0% of the dataset)
 Corpus_Size: 320 Loss: 1.024e-05 (50.0% of the dataset)
 Corpus_Size: 320 Loss: 0.3627 (50.0% of the dataset)
 Corpus_Size: 320 Loss: 5.748e-06 (50.0% of the dataset)
-Average Loss: 0.08902341
-Average Time: 101.0727
+Average Loss: 0.089023
+Average Time: 59.454529
 
 Corpus_Size: 640 Loss: 4.777e-06 (100.% of the dataset)
 Corpus_Size: 640 Loss: 0.2233 (100.% of the dataset)
@@ -175,6 +175,5 @@ Corpus_Size: 640 Loss: 6.901e-06 (100.% of the dataset)
 Corpus_Size: 640 Loss: 0.09902 (100.% of the dataset)
 Corpus_Size: 640 Loss: 0.09155 (100.% of the dataset)
 Corpus_Size: 640 Loss: 0.1113 (100.% of the dataset)
-Average Loss: 0.1341228
-Average Time: 202.0063
-
+Average Loss: 0.134122
+Average Time: 112.225722

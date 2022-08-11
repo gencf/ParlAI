@@ -1,0 +1,7 @@
+TestTransformerRanker::test_alt_reduction
+TestTransformerRanker::test_prelayernorm
+TestTransformerRanker::test_repeater
+TestTransformerRanker::test_xlm
+TestTransformerGenerator::test_prelayernorm
+TestTransformerGenerator::test_xlm
+TestDecoderOnly::test_train

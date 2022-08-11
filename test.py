@@ -1,7 +1,6 @@
 import os
 import time
 os.environ['MKL_THREADING_LAYER'] = 'GNU'
-# from numba import jit, cuda
 
 from matplotlib import pyplot as plt
 
@@ -13,14 +12,11 @@ def write_file(test):
     with open(test_path, "a") as file:
         file.write("Corpus_Size: {} Loss: {:.9} ({:.4}% of the dataset)\n".format(corpus_size, str(test['loss']), str(float(corpus_size/6.4))))
 
-# @jit(target_backend ="cuda")
 if __name__ == '__main__':
     ROOT_PATH = "./z"
-    # FILE_NAME = "test_gpt2"
-    FILE_NAME = "test_t5"
+    FILE_NAME = ""
     TEST_NAME_LIST = []
     CORPUS_SIZE_LIST = [4, 8, 32, 64, 128, 320, 640]
-    # CORPUS_SIZE_LIST = [640]
     NUM_TESTS = 1
 
     FILE_PATH = os.path.join(ROOT_PATH, FILE_NAME)
@@ -144,4 +140,3 @@ if __name__ == '__main__':
         plt.ylabel("Average Time")
         plt.title("Average Time vs Corpus Size")
         plt.savefig("{}_time_graph.pdf".format(TEST_PATH))
-
